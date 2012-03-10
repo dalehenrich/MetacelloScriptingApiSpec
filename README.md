@@ -94,7 +94,7 @@ classes defined in a package and extension methods defined in the package:
 The **FileTree repository** is used to access a collection of file-based Monticello packages that are 
 stored in a directory on your local disk. 
 
-Here's an example of the structure of a **FileTree repository**:
+Here's an example of the structure of a **FileTree repository** (sample/core) with multiple packages (**.pkg** directories):
 
 ```
 +-sample
@@ -105,10 +105,82 @@ Here's an example of the structure of a **FileTree repository**:
   | +-Sample-Platform.pharo.pkg\
   | +-Sample-Platform.squeak.pkg\
   | +-Sample-Tests.pkg\
+  | +-VersionOfSample.pkg\
   +-doc/
   +-license.txt
   +-README.md
 ```
+
+The **metacello.json** file contains the Metacello dependency information in JSON format:
+
+```
+[
+  {"baseline" : [
+		{"common" : 
+			[
+			{"github" : {
+				"name" : "External",
+				"repositories" : [ "github://dalehenrich/external/core"]}},
+			{"package" : {
+				"name" : "Sample-Core",
+				"requires" : ["External"],
+				"includes" : ["Sample-Platform"]}},
+			{"package" : {
+				"name" : "Sample-Platform",
+				"requires" : ["Sample-Core"]}},
+			{"package" : {
+				"name" : "Sample-Tests",
+				"requires" : ["Sample-Core"]}}]},
+		{"gemstone" : 
+			[
+			{"package" : {
+				"name" : "Sample-Platform",
+				"file" : "Sample-Platform.gemstone"}}]},
+		{"pharo" : 
+			[
+			{"package" : {
+				"name" : "Sample-Platform",
+				"file" : "Sample-Platform.pharo"}}]},
+		{"squeak" : 
+			[
+			{"package" : {
+				"name" : "Sample-Platform",
+				"file" : "Sample-Platform.squeak"}}]}
+	]}
+]
+```
+The **baseline** version in **VersionOfSample** looks like the following:
+
+```
+    spec
+        for: #'common'
+        do: [ 
+            spec
+                github: 'External'
+                with: [ 
+                    spec repository: 'github://dalehenrich/external/core' ].
+            spec
+                package: 'Sample-Core' with: [ 
+                    spec
+                        requires: 'External';
+                        includes: 'Sample-Platform' ]; 
+                package: 'Sample-Platform' with: [ spec requires: 'Sample-Core' ];
+                package: 'Sample-Tests' with: [ spec requires: 'Sample-Core' ] ].
+    spec
+        for: #'gemstone'
+        do: [ 
+            spec package: 'Sample-Platform' with: [ spec file: 'Sample-Platform.gemstone' ] ].
+    spec
+        for: #'pharo'
+        do: [ 
+            spec package: 'Sample-Platform' with: [ spec file: 'Sample-Platform.pharo' ] ].
+    spec
+        for: #'squeak'
+        do: [ 
+            spec package: 'Sample-Platform' with: [ spec file: 'Sample-Platform.squeak' ] ].
+```
+
+and was used to produce the **metacello.json** file.
 
 The following script:
 
@@ -118,6 +190,8 @@ Metacello new
     repository: 'filetree:///opt/git/sample/core/';
     load.
 ```
+
+loads the **Sample** project from the **/opt/git/sample/core/** directory.
 
 ####GitHub Repository
 
