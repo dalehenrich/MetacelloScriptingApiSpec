@@ -92,7 +92,12 @@ classes defined in a package and extension methods defined in the package:
 
 ####FileTree Repository
 The **FileTree repository** is used to access a collection of file-based Monticello packages that are 
-stored in a directory on your local disk. 
+stored in a directory on your local disk. The **FileTree repository** is neutral when it comes to which SCM is used
+to manage the directory (if any at all). 
+
+Svn, Git, or Mercurial can be used to version the contents of the 
+**FileTree repository** along with any other file-based artifacts that you may want to associate with the code in the
+repository.
 
 Here's an example of the structure of a **FileTree repository** (sample/core) with multiple packages (**.pkg** directories):
 
@@ -201,3 +206,6 @@ Metacello new
     repository: 'github://dalehenrich/sample:master/core';
     get.
 ```
+
+###Git Repository
+A git-based repository is planned for Phase 3 of the project.
