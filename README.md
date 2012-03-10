@@ -188,7 +188,7 @@ The following script:
 Metacello new
     project: 'Sample';
     repository: 'github://dalehenrich/sample:master/core';
-    get.
+    load.
 ```
 
 loads the **Sample** project from the **master** branch of the **https://github.com/dalehenrich/sample** project on GitHub.
