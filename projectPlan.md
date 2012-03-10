@@ -24,3 +24,5 @@ user feedback for Phase1 of FileTree and Metacello ... use the HEAD of phase bra
 ##Phase 3
 in-image support for git repositories
 
+Metacello GUI
+
