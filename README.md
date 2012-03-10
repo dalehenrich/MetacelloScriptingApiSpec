@@ -15,7 +15,7 @@ project life-cycle operations like **commit** and **upgrade**.
 
 ###Commands
 #### Load
-The following command is used to load version **3.0.6** of the **Seaside30** project using the 
+The following script is used to load version **3.0.6** of the **Seaside30** project using the 
 **ConfigurationOfSeaside30** found in the **http://www.squeaksource.com/Seaside30/** repository:
 
 ```Smalltalk
@@ -28,7 +28,7 @@ Metacello new
 
 The **Metacello Scripting API** includes a built-in configuration search path 
 (http://www.squeaksource.com/MetacelloRepository/ by default) and default versions (#'stable' by default) for 
-loads. The following expression:
+loads. The following script:
 
 ```Smalltalk
 Metacello new
@@ -66,7 +66,7 @@ Loads the latest version of the **ConfigurationOfSeaside30** and then loads vers
 differs from **load** in that **load** does not refresh the in-image copy of **ConfigurationOfSeaside30**. 
 The distinction between **load** and **upgrade** becomes more important when working with GitHub-based projects.
 
-###File System Package Structure
+###File-based Monticello Packages
 The basic idea is to store individual methods in files so that git can manage method-level history. 
 The split between **classes** and **extensions** in the **snapshot** directory is differentiate between 
 classes defined in a package and extension methods defined in the package:
@@ -91,6 +91,24 @@ classes defined in a package and extension methods defined in the package:
 ```
 
 ####FileTree Repository
+The **FileTree repository** is used to access a collection of file-based Monticello packages that are 
+stored in a directory on your local disk. 
+
+Here's an example of the structure of a **FileTree repository**:
+```
++-sample
+  +-core/
+  | +-metacello.json
+  | +-Sample-Core.pkg\
+  | +-Sample-Platform.gemstone.pkg\
+  | +-Sample-Platform.pharo.pkg\
+  | +-Sample-Platform.squeak.pkg\
+  | +-Sample-Tests.pkg\
+  +-doc/
+  +-license.txt
+  +-README.md
+```
+The following script:
 
 ```Smalltalk
 Metacello new
@@ -98,7 +116,6 @@ Metacello new
     repository: 'filetree:///opt/git/sample/core/';
     load.
 ```
-
 
 ####GitHub Repository
 
