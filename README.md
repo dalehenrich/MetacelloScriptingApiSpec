@@ -1,7 +1,7 @@
 The **Metacello Scripting API** provides a clean and simple to use api for managing software projects 
 based on Metacello. 
 
-## Introduction
+## Phase I Introduction
 The API is project-oriented. Every command starts by specifying the project details like: *name*, *version*, 
 and *repository url*. The *name* is the name of the project (sans *ConfigurationOf*). The *version* 
 is the version of the project and the *repository url* specifies the location of the **Metacello configuration**. 
