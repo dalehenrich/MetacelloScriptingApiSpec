@@ -118,36 +118,24 @@ The **metacello.json** file contains the Metacello dependency information in JSO
 
 ```
 {"baseline" : [ 
-      {"common" : 
-          [ 
-          {"githubs" : [ 
-              { "External" : { 
-                  "repositories" : [ "github://dalehenrich/external/core"]}}]},
-          {"packages" : [ 
-              { "Sample-Core" : { 
-                  "requires" : ["External"],
-                  "includes" : ["Sample-Platform"]}},
-              { "Sample-Platform" : { 
-                  "requires" : ["Sample-Core"]}},
-              { "Sample-Tests" : { 
-                  "requires" : ["Sample-Core"]}}]}]},
-      {"gemstone" : 
-          [ 
-          {"packages" : [ 
-              { Sample-Platform" : { 
-                  "file" : "Sample-Platform.gemstone"}}]}]},
-      {"pharo" : 
-          [ 
-          {"packages" : [ 
-              { "Sample-Platform" : { 
-                  "file" : "Sample-Platform.pharo"}}]}]},
-      {"squeak" : 
-          [ 
-          {"packages" : [ 
-              { "Sample-Platform" : { 
-                  "file" : "Sample-Platform.squeak"}}]}]}
-  ]}
+  {"projects" : [
+      { "External" : { "repositories" : [ "github://dalehenrich/external/core" ]}}]},
+  {"packages" : [
+      { "Sample-Core" : {
+                    "requires" : ["External"],
+                    "includes" : ["Sample-Platform"]}},
+      { "Sample-Platform" : { 
+                    "requires" : ["Sample-Core"],
+                    "conditional" : [
+                        {"gemstone" : [
+                          { "file" : "Sample-Platform.gemstone"}],
+                        {"pharo" : [
+                          { "file" : "Sample-Platform.pharo"}],
+                        {"squeak" : [
+                          { "file" : "Sample-Platform.squeak"}]]}},
+      { "Sample-Tests" : { "requires" : ["Sample-Core"]}}]}]}
 ```
+
 The **baseline** version in **VersionOfSample** looks like the following:
 
 ```
