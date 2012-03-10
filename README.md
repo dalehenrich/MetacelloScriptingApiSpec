@@ -90,20 +90,21 @@ classes defined in a package and extension methods defined in the package:
   +-version
 ```
 
-
 ####FileTree Repository
-```Smalltalk
-Metacello new
-    project: 'Sample';
-    repository: 'github://dalehenrich/sample:master/core';
-    get.
-```
-
-####GitHub Repository
 
 ```Smalltalk
 Metacello new
     project: 'Sample';
     repository: 'filetree:///opt/git/sample/core/';
     load.
+```
+
+
+####GitHub Repository
+
+```Smalltalk
+Metacello new
+    project: 'Sample';
+    repository: 'github://dalehenrich/sample:master/core';
+    get.
 ```
