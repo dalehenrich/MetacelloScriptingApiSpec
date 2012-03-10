@@ -66,7 +66,7 @@ Loads the latest version of the **ConfigurationOfSeaside30** and then loads vers
 differs from **load** in that **load** does not refresh the in-image copy of **ConfigurationOfSeaside30**. 
 The distinction between **load** and **upgrade** becomes more important when working with GitHub-based projects.
 
-###File System Package Format
+###File System Package Structure
 The basic idea is to store individual methods in files so that git can manage method-level history. 
 The split between **classes** and **extensions** in the **snapshot** directory is differentiate between 
 classes defined in a package and extension methods defined in the package:
