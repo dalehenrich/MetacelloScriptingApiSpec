@@ -95,6 +95,7 @@ The **FileTree repository** is used to access a collection of file-based Montice
 stored in a directory on your local disk. 
 
 Here's an example of the structure of a **FileTree repository**:
+
 ```
 +-sample
   +-core/
@@ -108,6 +109,7 @@ Here's an example of the structure of a **FileTree repository**:
   +-license.txt
   +-README.md
 ```
+
 The following script:
 
 ```Smalltalk
