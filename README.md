@@ -1,9 +1,7 @@
-The **Metacello Scripting API** provides a clean and simple to use api for managing software projects 
-based on Metacello. 
-
 ## Introduction
-The API is project-oriented. Every command starts by specifying the project details like: *name*, *version*, 
-and *repository url*. The *name* is the name of the project (sans *ConfigurationOf*). The *version* 
+The **Metacello Scripting API** is project-oriented. Every command starts by specifying the project details like: *name*, 
+*version*, 
+and *repository url*. The *name* is the name of the project sans *ConfigurationOf*. The *version* 
 is the version of the project and the *repository url* specifies the location of the **Metacello configuration**. 
 
 In addition to the standard Monticello repositories used for storing binary **mcz** files. Metacello supports 
@@ -211,11 +209,26 @@ Metacello new
 
 loads the **Sample** project from the **master** branch of the **https://github.com/dalehenrich/sample** project on GitHub.
 
-The **repository description** for a GitHub repository has the following structure:
+#####GitHub repository description syntax
 
-<pre
-  github://<strong>guthub project path</strong>:branch or tag or SHA/<strong>repository path</strong>
-</pre>
+The repository description for a GitHub reference has 5 parts, as follows:
+
+```
+  github:// <github user or organization> / <github project name>  [ : <version identifier> ] [ / <repository path> ]
+```
+
+**github://** is the schema identifier for the GitHub repository description.
+
+**github user or organization** is the user name or organization name of the owner of the GitHub proejct.
+
+**github project name** is the name of the GitHub project.
+
+**version identifier** is the name of a *branch*, the name of a *tag* or the *SHA* of a commit. The *tag name* and *SHA*  
+identifies a specific commit. The *branch name* resolves to the current HEAD of the branch. The **version identifier** is 
+optional. 
+
+**repository path** is the path to a subdirectory in the project where the repository is rooted. If absent the repository 
+is rooted in the projects HOME directory.
 
 
 ###Git Repository
