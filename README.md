@@ -1,19 +1,28 @@
-The **Metacello Scripting API** provides a clean and simple to use api for managing software projects based on Metacello. 
+The **Metacello Scripting API** provides a clean and simple to use api for managing software projects 
+based on Metacello. 
 
-### Introduction
-The API is project-oriented. Every command starts by specifying the project details like: *name*, *version*, and *repository url*. The  *repository url* specifies the location of the **Metacello configuration** to be used for the requested operation. Operations include the standard Metacello *load/fetch/record* commands as well as other commands that will be covered later.
+## Introduction
+The API is project-oriented. Every command starts by specifying the project details like: *name*, *version*, 
+and *repository url*. The  *repository url* specifies the location of the **Metacello configuration** to be 
+used for the requested operation. Operations include the standard Metacello *load/fetch/record* commands as 
+well as other commands that will be covered later.
+
+###Commands
 #### Load
-The following command is used to load version **#stable** of the **Seaside30** project using the **ConfigurationOfSeaside30** found in the **http://www.squeaksource.com/Seaside30/** repository:
+The following command is used to load version **3.0.6** of the **Seaside30** project using the 
+**ConfigurationOfSeaside30** found in the **http://www.squeaksource.com/Seaside30/** repository:
 
 ```Smalltalk
 Metacello new
   project: 'Seaside30';
-  version: #'stable';
+  version: '3.0.6';
   repository: 'http://www.squeaksource.com/Seaside30/';
   load.
 ```
 
-The **Metacello Scripting API** includes a built-in configuration search path ( http://www.squeaksource.com/MetacelloRepository/ by default) and default versions for loads, so that the above expression can be reduced to:
+The **Metacello Scripting API** includes a built-in configuration search path 
+(http://www.squeaksource.com/MetacelloRepository/ by default) and default versions for 
+loads, so that the above expression can be reduced to:
 
 ```Smalltalk
 Metacello new
@@ -32,7 +41,8 @@ Metacello new
   commit: 'fix Issue 134'.
 ```
 
-Performs a commit for each Monticello package in the *Seaside30* that has been modified, updates the specification in the configuration for *Seaside30* and commits that package as well.
+Performs a commit for each Monticello package in the *Seaside30* that has been modified, updates 
+the specification in the configuration for *Seaside30* and commits that package as well.
 
 #### Upgrade
 The **upgrade** command:
@@ -44,4 +54,12 @@ Metacello new
   upgrade.
 ```
 
-Loads the latest version of the ConfigurationOfSeaside30 and then loads version '3.0.6.3'. **Upgrade** differs from **load** in that **load** does not refresh the in-image copy of ConfigurationOfSeaside30. The distinction between **load** and **upgrade** becomes more important when working with GitHub-based projects.
+Loads the latest version of the ConfigurationOfSeaside30 and then loads version '3.0.6.3'. **Upgrade** 
+differs from **load** in that **load** does not refresh the in-image copy of ConfigurationOfSeaside30. 
+The distinction between **load** and **upgrade** becomes more important when working with GitHub-based projects.
+
+###Alternate Repositories
+####Directory-based Monticello packages
+####FileTree Repository
+####GitHub Repository
+
