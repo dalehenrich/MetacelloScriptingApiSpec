@@ -6,11 +6,14 @@ The API is project-oriented. Every command starts by specifying the project deta
 and *repository url*. The *name* is the name of the project (sans *ConfigurationOf*). The *version* 
 is the version of the project and the *repository url* specifies the location of the **Metacello configuration**. 
 
-###Commands
+In addition to the standard Monticello repositories used for storing binary **mcz** files. Metacello supports 
+a new file system-based package format that makes it possible to include support 
+for traditional **Source Code Management Systems** like Svn and Git.
 
-Commands include the standard Metacello *load/fetch/record* commands as well as 
+Commands include the standard Metacello **load/fetch/record** commands as well as 
 project life-cycle operations like **commit** and **upgrade**. 
 
+###Commands
 #### Load
 The following command is used to load version **3.0.6** of the **Seaside30** project using the 
 **ConfigurationOfSeaside30** found in the **http://www.squeaksource.com/Seaside30/** repository:
@@ -63,11 +66,30 @@ Loads the latest version of the ConfigurationOfSeaside30 and then loads version 
 differs from **load** in that **load** does not refresh the in-image copy of ConfigurationOfSeaside30. 
 The distinction between **load** and **upgrade** becomes more important when working with GitHub-based projects.
 
-###Directory-based Monticello packages
-Storing binary **mcz** does not make very effective use of of file system-based SCMs (like SVN and GIT).
-In order to make effective use of these SCMs, it is necessary to store 
-source code as text files. 
+###File System Package Format
+The basic idea is to store individual methods in files so that git can manage method-level history. 
+The split between **classes** and **extensions** in the **snapshot** directory is differentiate between 
+classes defined in a package and extension methods defined in the package:
 
-#####FileTree Repository
-#####GitHub Repository
+```
++-Sample-Core.pkg\
+  +-snapshot\
+  | +-classes\
+  | | +-SampleCore.class\
+  | |   +-SampleCore.st
+  | |   +-instance\
+  | |     +-author.st
+  | +-extensions\
+  |   +-Object.class\
+  |     +-instance\
+  |       +-isSample.st
+  +-.filetree
+  +-categories.st
+  +-initializers.st
+  +-package
+  +-version
+```
+
+####FileTree Repository
+####GitHub Repository
 
