@@ -213,8 +213,9 @@ loads the **Sample** project from the **master** branch of the **https://github.
 
 The **repository description** for a GitHub repository has the following structure:
 
-
-<span style="color: green">github://dalehenrich/sample:master/core</span>
+<pre
+  github://<strong>guthub project path</strong>:branch or tag or SHA/<strong>repository path</strong>
+</pre>
 
 
 ###Git Repository
