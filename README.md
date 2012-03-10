@@ -36,7 +36,7 @@ Metacello new
   load.
 ```
 
-loads the **#stable** version of Seaside30 using the **ConfigurationOfSeaside30** found in 
+loads the **#stable** version of **Seaside30** using the **ConfigurationOfSeaside30** found in 
 the http://www.squeaksource.com/MetacelloRepository repository.
 
 
@@ -49,8 +49,8 @@ Metacello new
   commit: 'fix Issue 134'.
 ```
 
-Performs a commit for each Monticello package in the *Seaside30* that has been modified, updates 
-the specification in the configuration for *Seaside30* and commits that package as well.
+Performs a commit for each Monticello package in the **Seaside30** that has been modified, updates 
+the specification in the configuration for **Seaside30** and commits that package as well.
 
 #### Upgrade
 The **upgrade** command:
@@ -62,8 +62,8 @@ Metacello new
   upgrade.
 ```
 
-Loads the latest version of the ConfigurationOfSeaside30 and then loads version '3.0.6.3'. **Upgrade** 
-differs from **load** in that **load** does not refresh the in-image copy of ConfigurationOfSeaside30. 
+Loads the latest version of the **ConfigurationOfSeaside30** and then loads version **3.0.6.3**. **Upgrade** 
+differs from **load** in that **load** does not refresh the in-image copy of **ConfigurationOfSeaside30**. 
 The distinction between **load** and **upgrade** becomes more important when working with GitHub-based projects.
 
 ###File System Package Format
