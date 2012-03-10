@@ -1,7 +1,7 @@
 The **Metacello Scripting API** provides a clean and simple to use api for managing software projects 
 based on Metacello. 
 
-## Phase I Introduction
+## Introduction
 The API is project-oriented. Every command starts by specifying the project details like: *name*, *version*, 
 and *repository url*. The *name* is the name of the project (sans *ConfigurationOf*). The *version* 
 is the version of the project and the *repository url* specifies the location of the **Metacello configuration**. 
@@ -200,12 +200,22 @@ loads the **Sample** project from the **/opt/git/sample/core/** directory.
 
 ####GitHub Repository
 
+The following script:
+
 ```Smalltalk
 Metacello new
     project: 'Sample';
     repository: 'github://dalehenrich/sample:master/core';
     get.
 ```
+
+loads the **Sample** project from the **master** branch of the **https://github.com/dalehenrich/sample** project on GitHub.
+
+The **repository description** for a GitHub repository has the following structure:
+
+
+<span style="color: green">github://dalehenrich/sample:master/core</span>
+
 
 ###Git Repository
 A git-based repository is planned for Phase 3 of the project.
