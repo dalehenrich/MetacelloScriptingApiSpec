@@ -117,40 +117,36 @@ Here's an example of the structure of a **FileTree repository** (sample/core) wi
 The **metacello.json** file contains the Metacello dependency information in JSON format:
 
 ```
-[
-  {"baseline" : [
-		{"common" : 
-			[
-			{"github" : {
-				"name" : "External",
-				"repositories" : [ "github://dalehenrich/external/core"]}},
-			{"package" : {
-				"name" : "Sample-Core",
-				"requires" : ["External"],
-				"includes" : ["Sample-Platform"]}},
-			{"package" : {
-				"name" : "Sample-Platform",
-				"requires" : ["Sample-Core"]}},
-			{"package" : {
-				"name" : "Sample-Tests",
-				"requires" : ["Sample-Core"]}}]},
-		{"gemstone" : 
-			[
-			{"package" : {
-				"name" : "Sample-Platform",
-				"file" : "Sample-Platform.gemstone"}}]},
-		{"pharo" : 
-			[
-			{"package" : {
-				"name" : "Sample-Platform",
-				"file" : "Sample-Platform.pharo"}}]},
-		{"squeak" : 
-			[
-			{"package" : {
-				"name" : "Sample-Platform",
-				"file" : "Sample-Platform.squeak"}}]}
-	]}
-]
+{"baseline" : [ 
+      {"common" : 
+          [ 
+          {"githubs" : [ 
+              { "External" : { 
+                  "repositories" : [ "github://dalehenrich/external/core"]}}]},
+          {"packages" : [ 
+              { "Sample-Core" : { 
+                  "requires" : ["External"],
+                  "includes" : ["Sample-Platform"]}},
+              { "Sample-Platform" : { 
+                  "requires" : ["Sample-Core"]}},
+              { "Sample-Tests" : { 
+                  "requires" : ["Sample-Core"]}}]}]},
+      {"gemstone" : 
+          [ 
+          {"packages" : [ 
+              { Sample-Platform" : { 
+                  "file" : "Sample-Platform.gemstone"}}]}]},
+      {"pharo" : 
+          [ 
+          {"packages" : [ 
+              { "Sample-Platform" : { 
+                  "file" : "Sample-Platform.pharo"}}]}]},
+      {"squeak" : 
+          [ 
+          {"packages" : [ 
+              { "Sample-Platform" : { 
+                  "file" : "Sample-Platform.squeak"}}]}]}
+  ]}
 ```
 The **baseline** version in **VersionOfSample** looks like the following:
 
