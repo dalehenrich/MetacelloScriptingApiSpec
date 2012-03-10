@@ -214,14 +214,14 @@ loads the **Sample** project from the **master** branch of the **https://github.
 The repository description for a GitHub reference has 5 parts, as follows:
 
 ```
-  github:// <github user or organization> / <github project name>  [ : <version identifier> ] [ / <repository path> ]
+  github:// <github user> / <github project>  [ : <version identifier> ] [ / <repository path> ]
 ```
 
 **github://** is the schema identifier for the GitHub repository description.
 
-**github user or organization** is the user name or organization name of the owner of the GitHub proejct.
+**github user** is the user name or organization name of the owner of the GitHub proejct.
 
-**github project name** is the name of the GitHub project.
+**github project** is the name of the GitHub project.
 
 **version identifier** is the name of a *branch*, the name of a *tag* or the *SHA* of a commit. The *tag name* and *SHA*  
 identifies a specific commit. The *branch name* resolves to the current HEAD of the branch. The **version identifier** is 
