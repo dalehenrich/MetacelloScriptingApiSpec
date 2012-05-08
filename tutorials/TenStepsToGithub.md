@@ -1,14 +1,6 @@
 #10 steps to GitHub
 
-In order to manage a disk-based repository with Metacello, we must split the classic ConfigurationOf into two pieces: a ConfigurationOf and a BaselineOf.
-
-The BaselineOf simply consists of a baseline version which describes the structure of the project:
-
-  * package and external project dependencies
-  * groups
-
-The ConfigurationOf defines project versions and defers to the BaselineOf for project structure.
-
+1. [Introduction](#introduction)
 1. [Project particulars](#project-particulars)
 2. [Create *external* git repository](#create-external-git-repository)
 3. [Install FileTree repository](#install-filetree-repository)
@@ -18,7 +10,16 @@ The ConfigurationOf defines project versions and defers to the BaselineOf for pr
 7. [Push to Github](#push-to-github)
 8. [Modify ConfigurationOfExternal](#modify-configurationofexternal)
 9. [Save ConfigurationOfExternal](#save-configurationofexternal)
-10. **????**
+
+##Introduction
+In order to manage a disk-based repository with Metacello, we must split the classic ConfigurationOf into two pieces: a ConfigurationOf and a BaselineOf.
+
+The BaselineOf simply consists of a baseline version which describes the structure of the project:
+
+  * package and external project dependencies
+  * groups
+
+The ConfigurationOf defines project versions and defers to the BaselineOf for project structure.
 
 ##Project particulars
 
