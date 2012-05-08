@@ -1,9 +1,9 @@
 #10 steps to GitHub
 
 1. [Introduction](#introduction)
-1. [Project particulars](#project-particulars)
+1. [Example Project](#example-project)
 2. [Create *external* git repository](#create-external-git-repository)
-3. [Install FileTree repository](#install-filetree-repository)
+3. [Install FileTree](#install-filetree)
 4. [Copy packages to *external*](#copy-packages-to-external)
 5. [Create BaselineOfExternal](#create-baselineofexternal)
 6. [Save BaselineOfExternl](#save-baselineofexternal)
@@ -21,7 +21,9 @@ The BaselineOf simply consists of a baseline version which describes the structu
 
 The ConfigurationOf defines project versions and defers to the BaselineOf for project structure.
 
-##Project particulars
+##Example Project
+
+*load up this guy from somewhere*
 
 For this exercise we'll look at version 1.0 of the External project with two packages:
 
