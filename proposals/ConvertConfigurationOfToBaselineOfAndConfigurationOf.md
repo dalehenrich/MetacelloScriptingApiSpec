@@ -53,14 +53,17 @@ version10: spec
                 yourself ]
 ```
 
-##Create BaselineOf
+##Create git repository
+##Set up FileTree repository
+##Copy packages to FileTree repository
+##Create BaselineOfExternal
 
 To create the BaselineOf we first create the class as a subclass of **MetacelloBaseBaselineConfiguration** (yes, we'll assume that this class exists in the base image of all platforms). 
-Then we add the **baseline:** method, by copying the **baseline10:**
+Then we add the **baseline:** method:
 
-###BaselineOfExternal
-
-####baseline:
+* copy the [**baseline10:**](#10-baseline) method
+* change the selector to **baseline:**
+* change the pragma to **<baseline>**
 
 ```Smalltalk
 baseline: spec
@@ -79,7 +82,12 @@ baseline: spec
                 yourself ]
 ```
 
-###ConfigurationOfExternal
+##Save BaselineOfExternal in FileTree repository
+##Push to GitHub
+##Modify ConfigurationOfExternal
+
+delete baseline method
+edit version10: method:
 
 ####version10:
 
@@ -95,3 +103,4 @@ version10: spec
                 repositoryVersion: '957492f31b77026d81dcb165c07c69b2ad897781' ]
 ```
 
+##Save ConfigurationOfExternal
