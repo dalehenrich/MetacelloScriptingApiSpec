@@ -16,9 +16,8 @@ For this exercise we'll look at version 1.0 of the External project with two pac
   * External-Core-dkh.5
   * External-Tests-dkh.2
 
-###ConfigurationOfExternal
-
-####baseline10:
+####1.0-baseline
+Here's the baseline specification for 1.0-baseline:
 
 ```Smalltalk
 baseline10: spec
@@ -38,7 +37,8 @@ baseline10: spec
                 yourself ]
 ```
 
-####version10:
+####1.0
+Here's the version specification for 1.0:
 
 ```Smalltalk
 version10: spec
@@ -53,7 +53,10 @@ version10: spec
                 yourself ]
 ```
 
-##New-style configuration
+##Create BaselineOf
+
+To create the BaselineOf we first create the class as a subclass of **MetacelloBaseBaselineConfiguration** (yes, we'll assume that this class exists in the base image of all platforms). 
+Then we add the **baseline:** method, by copying the **baseline10:**
 
 ###BaselineOfExternal
 
