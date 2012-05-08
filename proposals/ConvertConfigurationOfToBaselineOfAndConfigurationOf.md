@@ -1,6 +1,20 @@
-#Introducing BaselineOf in support of GitHub
+#Converting ConfigurationOf to a ConfigurationOf and BaselineOf for a GitHub project
 
-##Old-style configuration
+In order to manage a disk-based repository with Metacello, we must split the classic ConfigurationOf into two pieces: a ConfigurationOf and a BaselineOf.
+
+The BaselineOf simply consists of a baseline version which describes the structure of the project:
+
+  * package and external project dependencies
+  * groups
+
+The ConfigurationOf defines project versions and defers to the BaselineOf for project structure.
+
+##Project particulars
+
+For this exercise we'll look at version 1.0 of the External project with two packages:
+
+  * External-Core-dkh.5
+  * External-Tests-dkh.2
 
 ###ConfigurationOfExternal
 
@@ -68,7 +82,7 @@ baseline: spec
 
 ```Smalltalk
 version10: spec
-    <version: '0.9' baselineOf: 'External'>
+    <version: '1.0' baselineOf: 'External'>
     spec
         for: #'common'
         do: [ 
