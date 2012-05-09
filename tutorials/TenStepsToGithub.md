@@ -82,15 +82,19 @@ git init
 ```
 
 ##Install FileTree repository
-Follow the (FileTree installation instructions](https://github.com/dalehenrich/filetree/blob/master/README.md).
+Follow the [FileTree installation instructions](https://github.com/dalehenrich/filetree/blob/master/README.md).
 ##Copy packages to FileTree repository
 
 ```Smalltalk
 | externalRepo sourceRepo versionInfo |
 externalRepo := MCFileTreeRepository new directory: (FileDirectory on: '/opt/git/external').
 sourceRepo := MCHttpRepository location: 'http://ss3.gemstone.com/ss/external' user: '' password: ''.
+
+"Copy External-Core package"
 versionInfo := sourceRepo versionInfoFromVersionNamed: 'External-Core-dkh.5'.
 externalRepo storeVersion: (sourceRepo versionWithInfo: versionInfo ifAbsent: [ self error: 'trouble' ]).
+
+"Copy External-Tests package"
 versionInfo := sourceRepo versionInfoFromVersionNamed: 'External-Tests-dkh.2'.
 externalRepo storeVersion: (sourceRepo versionWithInfo: versionInfo ifAbsent: [ self error: 'trouble' ]).
 ```
