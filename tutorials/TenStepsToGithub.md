@@ -27,7 +27,7 @@ Load an existing *.mcz-based* project into your image:
 
 ```Smalltalk
 Gofer new
-  ss3: 'External';
+  url: 'http://ss3.gemstone.com/ss/external';
   package: 'ConfigurationOfExternal';
   load.
 ((Smalltalk at: #ConfigurationOfExternal) project version: '1.0') load: 'ALL'`
