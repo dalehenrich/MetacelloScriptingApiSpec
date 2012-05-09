@@ -11,18 +11,18 @@ The BaselineOf consists of a baseline version which describes the structure of t
   * groups
 
 ##10 Steps
-1. [Example Project](#example-project)
-2. [Create *external* git repository](#create-external-git-repository)
-3. [Install FileTree](#install-filetree)
-4. [Copy packages to *external*](#copy-packages-to-external)
-5. [Create BaselineOfExternal](#create-baselineofexternal)
-6. [Save BaselineOfExternl](#save-baselineofexternal)
-7. [Push to Github](#push-to-github)
-8. [Modify ConfigurationOfExternal](#modify-configurationofexternal)
-9. [Save ConfigurationOfExternal](#save-configurationofexternal)
+1. [Example Project](#1-example-project)
+2. [Create git repository](#2-create-git-repository)
+3. [Install FileTree](#3-install-filetree)
+4. [Copy packages to *external*](#4-copy-packages-to-external)
+5. [Create BaselineOfExternal](#5-create-baselineofexternal)
+6. [Save BaselineOfExternl](#6-save-baselineofexternal)
+7. [Push to Github](#7-push-to-github)
+8. [Modify ConfigurationOfExternal](#8-modify-configurationofexternal)
+9. [Save ConfigurationOfExternal](#9-save-configurationofexternal)
 10. **????**
 
-##Example Project
+##1. Example Project
 Load an existing *.mcz-based* project into your image:
 
 ```Smalltalk
@@ -73,7 +73,7 @@ version10: spec
                 yourself ]
 ```
 
-##Create git repository
+##2. Create git repository
 
 ```shell
 mkdir /opt/git/external
@@ -81,9 +81,9 @@ cd /opt/git/external
 git init
 ```
 
-##Install FileTree repository
+##3. Install FileTree repository
 Follow the [FileTree installation instructions](https://github.com/dalehenrich/filetree/blob/master/README.md).
-##Copy packages to FileTree repository
+##4. Copy packages to FileTree repository
 
 ```Smalltalk
 | externalRepo sourceRepo versionInfo |
@@ -99,7 +99,7 @@ versionInfo := sourceRepo versionInfoFromVersionNamed: 'External-Tests-dkh.2'.
 externalRepo storeVersion: (sourceRepo versionWithInfo: versionInfo ifAbsent: [ self error: 'trouble' ]).
 ```
 
-##Create BaselineOfExternal
+##5. Create BaselineOfExternal
 
 ```Smalltalk
 MetacelloBaseBaselineConfiguration subclass: #BaselineOfExternal
@@ -132,9 +132,9 @@ baseline: spec
                 yourself ]
 ```
 
-##Save BaselineOfExternal in FileTree repository
-##Push to GitHub
-##Modify ConfigurationOfExternal
+##6. Save BaselineOfExternal in FileTree repository
+##7. Push to GitHub
+##8. Modify ConfigurationOfExternal
 
 delete baseline method
 edit version10: method:
@@ -153,4 +153,4 @@ version10: spec
                 repositoryVersion: '957492f31b77026d81dcb165c07c69b2ad897781' ]
 ```
 
-##Save ConfigurationOfExternal
+##9. Save ConfigurationOfExternal
